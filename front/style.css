@@ -1,6 +1,7 @@
 :root {
   color-scheme: light;
-  --bg: #f7f7f4;
+  --bg: #f5f7f6;
+  --bg-accent: #eef4f2;
   --text: #1d2528;
   --muted: #637074;
   --line: #d9ded8;
@@ -8,6 +9,11 @@
   --accent: #166b5c;
   --accent-dark: #0f5146;
   --danger: #9b2c2c;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 18px 50px rgba(12, 22, 18, 0.08);
+  --shadow-sm: 0 8px 24px rgba(12, 22, 18, 0.08);
+  --focus: 0 0 0 4px rgba(22, 107, 92, 0.18);
 }
 
 * {
@@ -16,29 +22,39 @@
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: radial-gradient(1200px 600px at 10% 0%, var(--bg-accent), transparent 60%),
+    radial-gradient(900px 500px at 100% 10%, #eaf1f0, transparent 55%),
+    var(--bg);
   color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
 }
 
 .app {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
   padding: 32px 0;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(217, 222, 216, 0.85);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
 }
 
 .toolbar {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--line);
+  padding: 28px 28px 22px;
+  border-bottom: 1px solid rgba(217, 222, 216, 0.9);
 }
 
 h1 {
   margin: 0 0 6px;
   font-size: 32px;
   line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 p {
@@ -61,35 +77,71 @@ label {
 input,
 button {
   min-height: 40px;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   font-size: 15px;
 }
 
-input {
+.control {
   width: 100%;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(217, 222, 216, 0.95);
   padding: 0 12px;
   background: #fff;
+  box-shadow: 0 1px 0 rgba(12, 22, 18, 0.02);
 }
 
-button {
+.control:focus {
+  outline: none;
+  box-shadow: var(--focus);
+  border-color: rgba(22, 107, 92, 0.6);
+}
+
+.btn {
   border: 0;
   padding: 0 14px;
-  color: #fff;
-  background: var(--accent);
   cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: transform 120ms ease, background-color 120ms ease, box-shadow 120ms ease,
+    opacity 120ms ease;
 }
 
-button:hover {
+.btn:focus {
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  color: #fff;
+  background: var(--accent);
+  box-shadow: 0 10px 24px rgba(22, 107, 92, 0.22);
+}
+
+.btn-primary:hover {
   background: var(--accent-dark);
 }
 
+.btn-secondary {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(217, 222, 216, 0.95);
+  box-shadow: 0 1px 0 rgba(12, 22, 18, 0.02);
+}
+
+.btn-secondary:hover {
+  background: rgba(238, 244, 242, 0.9);
+}
+
 .status {
-  margin-top: 20px;
+  margin: 20px 28px 0;
   padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--panel);
+  border: 1px solid rgba(217, 222, 216, 0.95);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-sm);
 }
 
 .status.error {
@@ -98,7 +150,7 @@ button:hover {
 }
 
 .result {
-  margin-top: 24px;
+  margin: 24px 28px 28px;
 }
 
 .summary {
@@ -113,23 +165,26 @@ button:hover {
   align-items: center;
   min-height: 32px;
   padding: 0 10px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(217, 222, 216, 0.95);
   border-radius: 999px;
-  background: var(--panel);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--muted);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background: var(--panel);
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(217, 222, 216, 0.95);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 th,
 td {
   padding: 12px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(217, 222, 216, 0.85);
   text-align: left;
   vertical-align: top;
 }
@@ -137,6 +192,15 @@ td {
 th {
   color: var(--muted);
   font-weight: 700;
+  background: rgba(238, 244, 242, 0.85);
+}
+
+tbody tr:nth-child(even) td {
+  background: rgba(245, 247, 246, 0.55);
+}
+
+tbody tr:hover td {
+  background: rgba(238, 244, 242, 0.9);
 }
 
 tr:last-child td {
@@ -164,5 +228,20 @@ tr:last-child td {
 
   button {
     width: 100%;
+  }
+
+  .toolbar {
+    padding: 20px 18px 16px;
+  }
+
+  .status {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+
+  .result {
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-bottom: 18px;
   }
 }
