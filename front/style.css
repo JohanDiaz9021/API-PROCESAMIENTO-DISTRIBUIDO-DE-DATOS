@@ -1,0 +1,168 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f7f4;
+  --text: #1d2528;
+  --muted: #637074;
+  --line: #d9ded8;
+  --panel: #ffffff;
+  --accent: #166b5c;
+  --accent-dark: #0f5146;
+  --danger: #9b2c2c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.search {
+  display: grid;
+  grid-template-columns: 100px minmax(130px, 180px) max-content max-content;
+  align-items: end;
+  gap: 10px;
+}
+
+label {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+input,
+button {
+  min-height: 40px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 0 12px;
+  background: #fff;
+}
+
+button {
+  border: 0;
+  padding: 0 14px;
+  color: #fff;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+.status {
+  margin-top: 20px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+}
+
+.status.error {
+  border-color: #e5b4b4;
+  color: var(--danger);
+}
+
+.result {
+  margin-top: 24px;
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--muted);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+.empty {
+  color: var(--muted);
+  padding: 24px 0;
+}
+
+@media (max-width: 720px) {
+  .app {
+    width: min(100% - 20px, 1120px);
+    padding-top: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .search {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
+}

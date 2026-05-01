@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recomendaciones MovieLens</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="toolbar" aria-label="Consulta de recomendaciones">
+        <div>
+          <h1>Recomendaciones MovieLens</h1>
+          <p>Consulta usuarios y recomendaciones generadas por K-Means.</p>
+        </div>
+        <form id="search-form" class="search">
+          <label for="user-id">Usuario</label>
+          <input id="user-id" name="user-id" type="number" min="1" placeholder="Ej. 1">
+          <button type="submit">Buscar</button>
+          <button type="button" id="load-all">Ver todos</button>
+        </form>
+      </section>
+
+      <section id="status" class="status" hidden></section>
+      <section id="result" class="result" aria-live="polite"></section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

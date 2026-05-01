@@ -1,0 +1,150 @@
+{
+  "configurations": {
+    "5": {
+      "silhouette_score": 0.2169,
+      "precision_at_10": 0.0045,
+      "recall_at_10": 0.0025,
+      "f1_at_10": 0.0032,
+      "cluster_distribution": [
+        {
+          "cluster": 0,
+          "num_users": 1381
+        },
+        {
+          "cluster": 1,
+          "num_users": 850
+        },
+        {
+          "cluster": 2,
+          "num_users": 948
+        },
+        {
+          "cluster": 3,
+          "num_users": 1033
+        },
+        {
+          "cluster": 4,
+          "num_users": 1828
+        }
+      ]
+    },
+    "10": {
+      "silhouette_score": 0.2041,
+      "precision_at_10": 0.005,
+      "recall_at_10": 0.0024,
+      "f1_at_10": 0.0033,
+      "cluster_distribution": [
+        {
+          "cluster": 0,
+          "num_users": 570
+        },
+        {
+          "cluster": 1,
+          "num_users": 593
+        },
+        {
+          "cluster": 2,
+          "num_users": 839
+        },
+        {
+          "cluster": 3,
+          "num_users": 261
+        },
+        {
+          "cluster": 4,
+          "num_users": 1266
+        },
+        {
+          "cluster": 5,
+          "num_users": 523
+        },
+        {
+          "cluster": 6,
+          "num_users": 203
+        },
+        {
+          "cluster": 7,
+          "num_users": 679
+        },
+        {
+          "cluster": 8,
+          "num_users": 767
+        },
+        {
+          "cluster": 9,
+          "num_users": 339
+        }
+      ]
+    },
+    "15": {
+      "silhouette_score": 0.2281,
+      "precision_at_10": 0.0073,
+      "recall_at_10": 0.0042,
+      "f1_at_10": 0.0053,
+      "cluster_distribution": [
+        {
+          "cluster": 0,
+          "num_users": 432
+        },
+        {
+          "cluster": 1,
+          "num_users": 278
+        },
+        {
+          "cluster": 2,
+          "num_users": 94
+        },
+        {
+          "cluster": 3,
+          "num_users": 548
+        },
+        {
+          "cluster": 4,
+          "num_users": 273
+        },
+        {
+          "cluster": 5,
+          "num_users": 705
+        },
+        {
+          "cluster": 6,
+          "num_users": 970
+        },
+        {
+          "cluster": 7,
+          "num_users": 398
+        },
+        {
+          "cluster": 8,
+          "num_users": 240
+        },
+        {
+          "cluster": 9,
+          "num_users": 196
+        },
+        {
+          "cluster": 10,
+          "num_users": 75
+        },
+        {
+          "cluster": 11,
+          "num_users": 139
+        },
+        {
+          "cluster": 12,
+          "num_users": 460
+        },
+        {
+          "cluster": 13,
+          "num_users": 654
+        },
+        {
+          "cluster": 14,
+          "num_users": 578
+        }
+      ]
+    }
+  },
+  "best_k": 15,
+  "relevance_threshold": 4.0
+}

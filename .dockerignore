@@ -1,0 +1,7 @@
+__pycache__
+*.pyc
+.git
+frontend
+scripts
+README.md
+.dockerignore
